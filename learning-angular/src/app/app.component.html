@@ -1,0 +1,14 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<app-messages></app-messages>
+
+<div style="text-align:center">
+  <h1>
+    Welcome to <span [innerHtml]="title | safe"></span>!
+  </h1>
+<a href="content">Content List</a><br>
+<a href="content/42">The answer to the universe and
+everything</a><br>
+<a href="thiswillnotwork">Invalid page link</a><br>
+<router-outlet></router-outlet>
+
+<app-content-list></app-content-list>

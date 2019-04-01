@@ -1,0 +1,16 @@
+<div class="card-wrapper {{item.type}}" [class.last]="last">   
+  <img (click)="clickImage()" [src]="item.imgUrl">
+  <div class="body">
+    <strong>Body:</strong> {{item.body}}
+  </div>
+  <div class="author">
+    <strong>Author:</strong> {{item.author}}
+  </div>
+  <div class="type">
+    <strong>Type:</strong> {{item.type}}
+  </div>
+  <div class="tags">
+    <strong>Tags:</strong><span *ngFor="let tag of item.tags">{{tag}} </span>
+  </div>
+  <a [routerLink]="['/content',item.contentId]" routerLinkActive="active">Content Detail</a><br> 
+</div>
