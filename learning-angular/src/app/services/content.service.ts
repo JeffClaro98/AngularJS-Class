@@ -21,16 +21,25 @@ export class ContentService {
       this.messageService.add('Content was fetched!');
       return this.http.get<Content[]>("api/content");
   }
+    addContent(content: Content): Observable<Content>{
+      let promise = new Promise((resolve, reject) =>{
+        let pass = true;
+        if(pass){
+          resolve(this.messageService.add('Content has been added!'))
+        }
+        else
+        {
+          reject(this.messageService.add('Content failed to be added!'))
+        }
+        promise.then(resolveResult => console.log(resolveResult))
+          .then(rejectResult => console.log(rejectResult));
+      });
+        return this.http.post<Content>("api/content", content, this.httpOptions);
+    }
 
     getContentItem(id): Observable<Content>{
       console.log("Retrieving OBSERVABLE content item");
       return this.http.get<Content>("api/content/" + id);
-    }
-
-    addContent(content: Content): Observable<Content>{
-        this.messageService.add('Content was added!');
-        return this.http.post<Content>("api/content", content,
-            this.httpOptions);
-    }
+  }
 
 }

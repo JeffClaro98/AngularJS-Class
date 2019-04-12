@@ -8,8 +8,7 @@ import {Content} from "./content-card/content-list-helper";
 })
 
 export class AppComponent {
-  title = 'Hell (AKA Learning-Angular)';
+  title = 'example-project';
   constructor() {
   }
 }
-

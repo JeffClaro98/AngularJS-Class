@@ -12,13 +12,6 @@ import { CreateContentComponent } from './create-content/create-content.componen
 import { HttpClientModule} from '@angular/common/http';
 import { HttpClientInMemoryWebApiModule} from 'angular-in-memory-web-api';
 import { InMemoryDataService} from './in-memory-data.service';
-import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import {MatButtonModule} from '@angular/material';
-import {MatInputModule} from '@angular/material/input';
-import { ContentDetailComponent } from './content-detail/content-detail.component';
-import { NotFoundComponent } from './not-found/not-found.component';
-import {RouterModule} from '@angular/router';
-
 
 @NgModule({
   declarations: [
@@ -28,21 +21,11 @@ import {RouterModule} from '@angular/router';
     ContentCardComponent,
     ContentTypePipe,
     MessagesComponent,
-    CreateContentComponent,
-    ContentDetailComponent,
-    NotFoundComponent
+    CreateContentComponent
   ],
   imports: [
       BrowserModule,
-      BrowserAnimationsModule,
-      MatButtonModule,
-      MatInputModule,
       FormsModule,
-      RouterModule.forRoot([
-        { path: 'content/:id', component: ContentDetailComponent },
-        { path: 'content', component: ContentListComponent },
-        { path: '**', component: NotFoundComponent }
-        ]),
       HttpClientModule,
       HttpClientInMemoryWebApiModule.forRoot(
               InMemoryDataService, { dataEncapsulation: false })

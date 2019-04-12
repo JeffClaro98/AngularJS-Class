@@ -22,8 +22,10 @@ export class CreateContentComponent implements OnInit {
           author: "Placeholder Author",
           body: "Placeholder Body Text",
           id: 0
+
       };
   }
+
     save(): void {
         this.contentItem.id = this.list.length > 0 ? Math.max(...this.list.map(content => content.id || 0)) + 1 : 2000;
         this.contentService.addContent(this.contentItem)
@@ -31,7 +33,7 @@ export class CreateContentComponent implements OnInit {
                 this.messageService.add('Content ' + contentCameBackFromServer.id + ' added and came back!');
               this.list = this.list.concat([contentCameBackFromServer]);
               this.listChange.emit(this.list);
-              //console.log(this.list);
+//              console.log(this.list);
             });
     }
 
